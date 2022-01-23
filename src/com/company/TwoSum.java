@@ -1,5 +1,9 @@
 package com.company;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * @author - LeeN
  * PROJECT NAME: LeetcodeChallenges
@@ -7,13 +11,24 @@ package com.company;
  */
 public class TwoSum {
     public static void main(String[] args) {
-        int[] nums = {2,3,4,5,6};
+        int[] nums = {7, 2, 11, 15};
         int target = 9;
 
-        for (int i=0; i<nums.length; i++){
+        TwoSum twoSum = new TwoSum();
+        System.out.println(Arrays.toString(twoSum.twoSUm(nums, target)));
+    }
 
-            System.out.println(nums[i]);
+    private int [] twoSUm(int[] nums, int target) {
+        int [] indices = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            for (int k = 0; k < i; k++) {
+                if ((nums[k] + nums[i]) == target) {
+                    indices = new int[]{k, i};
+                   ;
+                }
+            }
         }
+        return indices;
 
     }
 }
